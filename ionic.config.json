@@ -1,0 +1,7 @@
+{
+  "name": "ActsBusinessExcellence",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
