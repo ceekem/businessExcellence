@@ -1,0 +1,132 @@
+<ion-content>
+  <ion-content class="bg-theme">
+      <div class="bg-white">
+          <ion-grid col-11 col-sm-10>
+              <ion-row>
+                  <ion-col col-12 text-center>
+                      <img src="assets/img/actslogo.png" alt="logo" class="logo">
+                  </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col col-12 text-center>
+                    <h3 id="business">Business Excellence</h3>
+                </ion-col>
+              </ion-row>
+              <div class="sign-row">
+                  <ion-segment [(ngModel)]="sign">
+                      <ion-segment-button id="in" value="signin">
+                          Sign in
+                      </ion-segment-button>
+                      <ion-segment-button id="up" value="signup">
+                          Sign up
+                      </ion-segment-button>
+                  </ion-segment>
+              </div>
+          </ion-grid>
+      </div>
+      <div padding class="bg-theme">
+          <div [ngSwitch]="sign">
+              <ion-list *ngSwitchCase="'signin'">
+                  <ion-grid col-11 col-sm-10 style="padding: 2rem 0;">
+                    <form  #form="ngForm" (ngSubmit)="login(form)">
+                      <ion-row>
+                          <ion-col class="form-theme">
+                              <div padding>
+                                  <ion-item>
+                                    <ion-label position="floating">your@email.com</ion-label>
+                                    <ion-input name="email" type="email" ngModel required></ion-input>
+                                  </ion-item>
+                                  <ion-item>
+                                    <ion-label position="floating">Password</ion-label>
+                                    <ion-input name="password" type="password" ngModel required></ion-input>
+                                  </ion-item>
+                                </div>
+                                <div>
+                                  <ion-button size="large" type="submit" expand="block">Login</ion-button>
+                                </div>
+                          </ion-col>
+                      </ion-row>
+                      <ion-row>
+                          <ion-col col-12>
+                              <!-- <button ion-button color="danger" block class="btn-theme-big-red" (click)="singIn()">Sign in</button> -->
+                          </ion-col>
+                          <ion-col col-6  text-center>
+                              <p class="info-text">forgot Password?</p>
+                          </ion-col>
+                          <ion-col col-6>
+                              <!-- <button ion-button color="danger" block class="btn-theme-big-white" strong (click)="sign='signup'">Register Now</button> -->
+                          </ion-col>
+                      </ion-row>
+                    </form>
+                  </ion-grid>
+              </ion-list>
+              <ion-list *ngSwitchCase="'signup'">
+                  <ion-grid col-11 col-sm-10 style="padding-top: 2rem 0;">
+                    <form  #form="ngForm" (ngSubmit)="register(form)">
+                      <ion-row>
+                          <ion-col class="form-theme">
+                            <div padding>
+                              <ion-item>
+                                <ion-label position="floating">Name</ion-label>
+                                <ion-input  name="name" type="text" ngModel required></ion-input>
+                              </ion-item>
+                              <ion-item>
+                                <ion-label position="floating">type of Business</ion-label>
+                                <ion-input  name="businessType" type="text" ngModel required></ion-input>
+                              </ion-item>
+                              <ion-item>
+                                <ion-label position="floating">Cell Number</ion-label>
+                                <ion-input  name="cell" type="tel" ngModel required></ion-input>
+                              </ion-item>
+                              <ion-item>
+                                <ion-label position="floating">Type of Input Required</ion-label>
+                                <ion-input  name="name" type="text" ngModel required></ion-input>
+                              </ion-item>
+                              <ion-item>
+                                <ion-label position="floating">your@email.com</ion-label>
+                                <ion-input name="email" type="email" ngModel required></ion-input>
+                              </ion-item>
+                              <!-- <ion-list>
+                                <ion-radio-group>
+                                  <ion-list-header>
+                                    current business status
+                                  </ion-list-header>
+                                  
+                                  <ion-item>
+                                    <ion-label>New</ion-label>
+                                    <ion-radio value="new"></ion-radio>
+                                  </ion-item>
+                              
+                                  <ion-item>
+                                    <ion-label>a few years</ion-label>
+                                    <ion-radio value="a few years"></ion-radio>
+                                  </ion-item>
+                              
+                                  <ion-item>
+                                    <ion-label>Many years</ion-label>
+                                    <ion-radio value="many years"></ion-radio>
+                                  </ion-item>
+                            
+                                </ion-radio-group>
+                              </ion-list> -->
+                              <ion-item>
+                                <ion-label position="floating">Password</ion-label>
+                                <ion-input name="password" type="password" ngModel required></ion-input>
+                              </ion-item>
+                              <ion-item>
+                                <ion-label position="floating">Confirm Password</ion-label>
+                                <ion-input name="confirm" type="password" ngModel required></ion-input>
+                              </ion-item>
+                            </div>
+                            <div padding>
+                              <ion-button  size="large" type="submit" expand="block">Register</ion-button>
+                            </div>
+                          </ion-col>
+                      </ion-row>
+                    </form>
+                  </ion-grid>
+              </ion-list>
+          </div>
+      </div>
+  </ion-content>
+</ion-content>

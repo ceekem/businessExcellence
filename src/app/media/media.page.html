@@ -1,0 +1,92 @@
+<ion-header>
+  <ion-toolbar color='primary'>
+    <ion-row>
+    <ion-col>
+      <ion-title>
+        Media
+      </ion-title>
+       </ion-col>
+        <ion-col>
+            <h4 routerLink="/tabs" float-right>back</h4>
+        </ion-col> 
+    </ion-row>
+  </ion-toolbar>
+  <!--Code for our second navbar starts here. Navbars are fixed. so if you want this to scroll with the page place in ion-content-->
+  <!-- <ion-toolbar color='danger'>
+    <ion-item>
+     <ion-icon item-left color='danger' name='logo-youtube'></ion-icon> -->
+      <!--Code for our dropdown with ngFor to iterate through our categories and form a ion-select for each one -->
+      <!-- <ion-select placeholder='Choose a category...' item-left [(ngModel)]="category" (ionChange)="filter(category)">
+        <ion-select-option *ngFor="let category of categoryArray" [value]="category.id">{{category.snippet.title}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-toolbar> -->
+</ion-header>
+
+<ion-content>
+    <!-- <ion-item>
+        <ion-label stacked>Channel ID</ion-label>
+        <ion-input type="text" [(ngModel)]="channelId"></ion-input>
+    </ion-item> -->
+
+
+
+    <ion-card *ngFor="let list of playlists | async">
+        <img [src]="list.snippet.thumbnails.high.url">
+      <ion-card-header (click)="viewVideo(list)">
+         
+        <ion-card-subtitle>{{ list.snippet.title }}</ion-card-subtitle>
+        <ion-card-title>{{ list.snippet.publishedAt | date:'short' }}</ion-card-title>
+      </ion-card-header>
+    
+      <ion-card-content>
+          <ion-grid>
+              <ion-row>
+                <ion-col>
+                    <h4>{{list.snippet.description}}</h4>
+                </ion-col>
+                <ion-col>
+                   <!-- <ion-button (click)="openPlaylist(list.id.videoId)">view pdf</ion-button> -->
+                   <ion-button (click)="pdf()">view pdf</ion-button>
+                </ion-col>
+              </ion-row>
+         </ion-grid>
+      </ion-card-content>
+    </ion-card>
+    
+    <ion-item  class='pageText'  *ngIf='playlists && playlists.length > 0'>
+        <p>Displaying {{playlists.length}} of {{playlists.length}}</p>
+    </ion-item>
+    <ion-item class='empty-list' *ngIf='playlists && playlists.length <= 0'>
+      <h2><ion-icon item-left color='danger' name='logo-youtube'></ion-icon></h2>
+      <h2>No videos to show.</h2>
+    </ion-item>
+
+
+
+
+
+
+
+<!-- <ion-card (click)='viewVideo(vid)' *ngFor="let vid of videos">
+    <img [src]="vid.snippet.thumbnails.default.url">
+  <ion-card-header>
+     
+    <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+    <ion-card-title>{{vid.snippet.title}}</ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content>
+      
+  </ion-card-content>
+</ion-card>
+
+<ion-item  class='pageText'  *ngIf='videos && videos.length > 0'>
+    <p>Displaying {{videos.length}} of  {{videos.length}}</p>
+</ion-item>
+<ion-item class='empty-list' *ngIf='videos && videos.length <= 0'>
+  <h2><ion-icon item-left color='danger' name='logo-youtube'></ion-icon></h2>
+  <h2>No videos to show.</h2>
+</ion-item> -->
+
+</ion-content>

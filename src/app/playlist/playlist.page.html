@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar color="danger">
+      <ion-title>Playlist</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-card *ngFor="let video of videos | async" (click)="openVideo(video)" detail-none>
+        <img [src]="video.snippet.thumbnails.standard.url">
+    <ion-card-header>
+       
+      <ion-card-subtitle>{{ video.snippet.title }}</ion-card-subtitle>
+      <ion-card-title>{{ video.snippet.description | date:'short' }}</ion-card-title>
+    </ion-card-header>
+  
+   
+  </ion-card>
+  
+  <ion-item  class='pageText'  *ngIf='playlists && playlists.length > 0'>
+      <p>Displaying {{playlists.length}} of {{playlists.length}}</p>
+  </ion-item>
+ 
+</ion-content>
