@@ -21,10 +21,14 @@ export class SignInPage implements OnInit {
 
   login(form: NgForm) {
 
-    let email = form.value.email;
-    let password = form.value.password;
-
-    this.authService.login(email, password);
+   
+    if(form.value.email != "" && form.value.password != ""){
+       let email = 'ray@gmail.com';
+       let password = '123456';
+       
+       this.authService.login(email, password);
+    }
+    
   }
 
 }

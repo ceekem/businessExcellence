@@ -833,6 +833,18 @@ module.exports = webpackAsyncContext;
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
+	"../media/media.module": [
+		"./src/app/media/media.module.ts",
+		"media-media-module"
+	],
+	"../pdf/pdf.module": [
+		"./src/app/pdf/pdf.module.ts",
+		"pdf-pdf-module"
+	],
+	"../slides/slides.module": [
+		"./src/app/slides/slides.module.ts",
+		"slides-slides-module"
+	],
 	"../tab1/tab1.module": [
 		"./src/app/tab1/tab1.module.ts",
 		"tab1-tab1-module"
@@ -845,13 +857,33 @@ var map = {
 		"./src/app/tab3/tab3.module.ts",
 		"tab3-tab3-module"
 	],
+	"../tab4/tab4.module": [
+		"./src/app/tab4/tab4.module.ts",
+		"tab4-tab4-module"
+	],
+	"../tab5/tab5.module": [
+		"./src/app/tab5/tab5.module.ts",
+		"tab5-tab5-module"
+	],
+	"./blog-list/blog-list.module": [
+		"./src/app/blog-list/blog-list.module.ts",
+		"blog-list-blog-list-module"
+	],
 	"./media/media.module": [
 		"./src/app/media/media.module.ts",
 		"media-media-module"
 	],
+	"./menu/menu.module": [
+		"./src/app/menu/menu.module.ts",
+		"menu-menu-module"
+	],
 	"./pdf/pdf.module": [
 		"./src/app/pdf/pdf.module.ts",
 		"pdf-pdf-module"
+	],
+	"./sign-in/sign-in.module": [
+		"./src/app/sign-in/sign-in.module.ts",
+		"sign-in-sign-in-module"
 	],
 	"./slides/slides.module": [
 		"./src/app/slides/slides.module.ts",
@@ -897,14 +929,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _guard_auth_guard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./guard/auth.guard */ "./src/app/guard/auth.guard.ts");
+
 
 
 
 var routes = [
-    { path: '', loadChildren: './tabs/tabs.module#TabsPageModule' },
-    { path: 'media', loadChildren: './media/media.module#MediaPageModule' },
-    { path: 'slides', loadChildren: './slides/slides.module#SlidesPageModule' },
-    { path: 'pdf', loadChildren: './pdf/pdf.module#PdfPageModule' }
+    { path: '', loadChildren: './tabs/tabs.module#TabsPageModule', canActivate: [_guard_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
+    { path: 'media', loadChildren: './media/media.module#MediaPageModule', canActivate: [_guard_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
+    { path: 'slides', loadChildren: './slides/slides.module#SlidesPageModule', canActivate: [_guard_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
+    { path: 'pdf', loadChildren: './pdf/pdf.module#PdfPageModule', canActivate: [_guard_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
+    { path: 'sign-in', loadChildren: './sign-in/sign-in.module#SignInPageModule', },
+    { path: 'blog-list', loadChildren: './blog-list/blog-list.module#BlogListPageModule' },
+    { path: 'menu', loadChildren: './menu/menu.module#MenuPageModule' }
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
@@ -947,19 +984,25 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppComponent", function() { return AppComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
-/* harmony import */ var _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic-native/splash-screen/ngx */ "./node_modules/@ionic-native/splash-screen/ngx/index.js");
-/* harmony import */ var _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic-native/status-bar/ngx */ "./node_modules/@ionic-native/status-bar/ngx/index.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic-native/splash-screen/ngx */ "./node_modules/@ionic-native/splash-screen/ngx/index.js");
+/* harmony import */ var _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic-native/status-bar/ngx */ "./node_modules/@ionic-native/status-bar/ngx/index.js");
+/* harmony import */ var _services_auth_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./services/auth.service */ "./src/app/services/auth.service.ts");
+
+
 
 
 
 
 
 var AppComponent = /** @class */ (function () {
-    function AppComponent(platform, splashScreen, statusBar) {
+    function AppComponent(platform, splashScreen, statusBar, authService, router) {
         this.platform = platform;
         this.splashScreen = splashScreen;
         this.statusBar = statusBar;
+        this.authService = authService;
+        this.router = router;
         this.initializeApp();
     }
     AppComponent.prototype.initializeApp = function () {
@@ -967,6 +1010,14 @@ var AppComponent = /** @class */ (function () {
         this.platform.ready().then(function () {
             _this.statusBar.styleDefault();
             _this.splashScreen.hide();
+            _this.authService.authenticationState.subscribe(function (state) {
+                if (state) {
+                    _this.router.navigate(['tabs']);
+                }
+                else {
+                    _this.router.navigate(['sign-in']);
+                }
+            });
         });
     };
     AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -974,9 +1025,11 @@ var AppComponent = /** @class */ (function () {
             selector: 'app-root',
             template: __webpack_require__(/*! ./app.component.html */ "./src/app/app.component.html")
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["Platform"],
-            _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_3__["SplashScreen"],
-            _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_4__["StatusBar"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_3__["Platform"],
+            _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_4__["SplashScreen"],
+            _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_5__["StatusBar"],
+            _services_auth_service__WEBPACK_IMPORTED_MODULE_6__["AuthService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
     ], AppComponent);
     return AppComponent;
 }());
@@ -1009,6 +1062,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ionic_native_youtube_video_player_ngx__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @ionic-native/youtube-video-player/ngx */ "./node_modules/@ionic-native/youtube-video-player/ngx/index.js");
 /* harmony import */ var _angular_http__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/http */ "./node_modules/@angular/http/fesm5/http.js");
 /* harmony import */ var _ionic_native_file_opener_ngx__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @ionic-native/file-opener/ngx */ "./node_modules/@ionic-native/file-opener/ngx/index.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _ionic_native_native_storage_ngx__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @ionic-native/native-storage/ngx */ "./node_modules/@ionic-native/native-storage/ngx/index.js");
+/* harmony import */ var _ionic_storage__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @ionic/storage */ "./node_modules/@ionic/storage/fesm5/ionic-storage.js");
+
+
+
 
 
 
@@ -1030,7 +1089,13 @@ var AppModule = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
             declarations: [_app_component__WEBPACK_IMPORTED_MODULE_8__["AppComponent"]],
             entryComponents: [],
-            imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["BrowserModule"], _angular_http__WEBPACK_IMPORTED_MODULE_12__["HttpModule"], _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"].forRoot(), _app_routing_module__WEBPACK_IMPORTED_MODULE_7__["AppRoutingModule"]],
+            imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["BrowserModule"],
+                _angular_http__WEBPACK_IMPORTED_MODULE_12__["HttpModule"],
+                _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"].forRoot(),
+                _app_routing_module__WEBPACK_IMPORTED_MODULE_7__["AppRoutingModule"],
+                _angular_common_http__WEBPACK_IMPORTED_MODULE_14__["HttpClientModule"],
+                _ionic_storage__WEBPACK_IMPORTED_MODULE_16__["IonicStorageModule"].forRoot()
+            ],
             providers: [
                 _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_6__["StatusBar"],
                 _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_5__["SplashScreen"],
@@ -1039,11 +1104,49 @@ var AppModule = /** @class */ (function () {
                 _ionic_native_youtube_video_player_ngx__WEBPACK_IMPORTED_MODULE_11__["YoutubeVideoPlayer"],
                 _provider_loading_service__WEBPACK_IMPORTED_MODULE_9__["LoadingService"],
                 _ionic_native_file_opener_ngx__WEBPACK_IMPORTED_MODULE_13__["FileOpener"],
+                _ionic_native_native_storage_ngx__WEBPACK_IMPORTED_MODULE_15__["NativeStorage"]
+                // Http
             ],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_8__["AppComponent"]]
         })
     ], AppModule);
     return AppModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/guard/auth.guard.ts":
+/*!*************************************!*\
+  !*** ./src/app/guard/auth.guard.ts ***!
+  \*************************************/
+/*! exports provided: AuthGuard */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AuthGuard", function() { return AuthGuard; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _services_auth_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services/auth.service */ "./src/app/services/auth.service.ts");
+
+
+
+var AuthGuard = /** @class */ (function () {
+    function AuthGuard(auth) {
+        this.auth = auth;
+    }
+    AuthGuard.prototype.canActivate = function () {
+        return this.auth.isAuthenticated();
+    };
+    AuthGuard = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+            providedIn: 'root'
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"]])
+    ], AuthGuard);
+    return AuthGuard;
 }());
 
 
@@ -1164,6 +1267,75 @@ var YtService = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/services/auth.service.ts":
+/*!******************************************!*\
+  !*** ./src/app/services/auth.service.ts ***!
+  \******************************************/
+/*! exports provided: AuthService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AuthService", function() { return AuthService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _ionic_storage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/storage */ "./node_modules/@ionic/storage/fesm5/ionic-storage.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+
+
+
+
+
+var TOKEN_KEY = 'auth-token';
+var AuthService = /** @class */ (function () {
+    function AuthService(storage, plt) {
+        var _this = this;
+        this.storage = storage;
+        this.plt = plt;
+        this.authenticationState = new rxjs__WEBPACK_IMPORTED_MODULE_3__["BehaviorSubject"](false);
+        this.plt.ready().then(function () {
+            _this.checkToken();
+        });
+    }
+    AuthService.prototype.checkToken = function () {
+        var _this = this;
+        this.storage.get(TOKEN_KEY).then(function (res) {
+            if (res) {
+                _this.authenticationState.next(true);
+            }
+        });
+    };
+    AuthService.prototype.login = function (email, password) {
+        var _this = this;
+        if (email === 'ray@gmail.com' && password === "123456") {
+            return this.storage.set(TOKEN_KEY, 'Bearer 1234567').then(function () {
+                _this.authenticationState.next(true);
+            });
+        }
+    };
+    AuthService.prototype.logout = function () {
+        var _this = this;
+        return this.storage.remove(TOKEN_KEY).then(function () {
+            _this.authenticationState.next(false);
+        });
+    };
+    AuthService.prototype.isAuthenticated = function () {
+        return this.authenticationState.value;
+    };
+    AuthService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+            providedIn: 'root'
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_storage__WEBPACK_IMPORTED_MODULE_2__["Storage"], _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["Platform"]])
+    ], AuthService);
+    return AuthService;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/environments/environment.ts":
 /*!*****************************************!*\
   !*** ./src/environments/environment.ts ***!
@@ -1225,7 +1397,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Raymond Mortu\Documents\leslie\ActsBusinessEx\ActsBusinessEx\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! C:\Users\Raymond Mortu\Documents\leslie\businessExcellence\src\main.ts */"./src/main.ts");
 
 
 /***/ })

@@ -1,6 +1,13 @@
 <ion-header>
   <ion-toolbar>
       <ion-title>
+        <ion-buttons slot="start">
+
+          <ion-menu-button>
+            
+          </ion-menu-button>
+
+        </ion-buttons>
 
         <ion-col col-12>
           <img src="assets/img/actslogo.png" alt="logo" class="logo">
@@ -17,7 +24,7 @@
 <ion-content>
     <!-- <ion-content padding class="bg-theme"> -->
       <ion-content class="home-bg">
-        <ion-grid col-11 col-sm-10>
+        <ion-grid col-12>
     
           <ion-row>
             <ion-col col-4>
@@ -25,7 +32,7 @@
                 <ion-card-content routerLink="/media" text-center>
                 <!-- <ion-card-content (click)="goToPage(aboutPage)"> -->
                   <img src="assets/Icons/drawable-xxxhdpi/ic_gallery.png" alt="icon">
-                  <p>Media</p>
+                  <p>Videos</p>
                 </ion-card-content>
               </ion-card>
             </ion-col>
@@ -41,15 +48,18 @@
               <ion-card>
                 <ion-card-content text-center>
                   <img src="assets/Icons/drawable-xxxhdpi/ic_appointment.png" alt="icon">
-                  <p>test</p>
+                  <p>Blog</p>
                 </ion-card-content>
               </ion-card>
             </ion-col>
+          </ion-row>
+
+          <ion-row>
             <ion-col col-4>
               <ion-card>
                 <ion-card-content text-center>
                   <img src="assets/Icons/drawable-xxxhdpi/ic_blog.png" alt="icon">
-                  <p>test</p>
+                  <p>Leaders</p>
                 </ion-card-content>
               </ion-card>
             </ion-col>
@@ -57,7 +67,7 @@
               <ion-card>
                 <ion-card-content text-center>
                   <img src="assets/Icons/drawable-xxxhdpi/ic_testimonials.png" alt="icon">
-                  <p>test</p>
+                  <p>About</p>
                 </ion-card-content>
               </ion-card>
             </ion-col>
@@ -69,11 +79,14 @@
                 </ion-card-content>
               </ion-card>
             </ion-col>
+          </ion-row>
+
+        <ion-row>
             <ion-col col-4>
               <ion-card>
                 <ion-card-content text-center>
                   <img src="assets/Icons/drawable-xxxhdpi/ic_availibility.png" alt="icon">
-                  <p>test</p>
+                  <p>Contact</p>
                 </ion-card-content>
               </ion-card>
             </ion-col>
@@ -93,44 +106,8 @@
                 </ion-card-content>
               </ion-card>
             </ion-col>
-    
-    
-        <!-- <ion-col col-4>
-              <ion-card>
-                <ion-card-content>
-                  <img src="assets/Icons/drawable-xxxhdpi/ic_reach_us.png" alt="icon">
-                  <p>test</p>
-                </ion-card-content>
-              </ion-card> 
-            </ion-col>
-            <ion-col col-4>
-                <ion-card>
-                    <ion-card-content>
-                      <img src="assets/Icons/drawable-xxxhdpi/ic_availibility.png" alt="icon">
-                      <p>test</p>
-                    </ion-card-content>
-                  </ion-card>
-            </ion-col>
-            <ion-col col-4>
-              <ion-card>
-                <ion-card-content>
-                  <img src="assets/Icons/drawable-xxxhdpi/ic_reach_us.png" alt="icon">
-                  <p>test</p>
-                </ion-card-content>
-              </ion-card> 
-            </ion-col>
-             -->
-    
-    
-<!--        <ion-col col-12>
-              <ion-button ion-button color="danger" block class="btn-theme-big-red" (click)="doPrompt()">
-                emergency
-              </ion-button>
-              <ion-button ion-button color="danger" block class="btn-theme-big-red">Book an
-                appointment
-              </ion-button>
-            </ion-col> -->
           </ion-row>
+    
         </ion-grid>
       </ion-content>
 

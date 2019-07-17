@@ -52,7 +52,7 @@ var TabsPageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-tabs>\n\n  <ion-tab-bar slot=\"bottom\">\n    <ion-tab-button tab=\"tab1\">\n      <ion-icon name=\"flash\"></ion-icon>\n      <ion-label>Tab One</ion-label>\n    </ion-tab-button>\n\n    <ion-tab-button tab=\"tab2\">\n      <ion-icon name=\"apps\"></ion-icon>\n      <ion-label>Tab Two</ion-label>\n    </ion-tab-button>\n\n    <ion-tab-button tab=\"tab3\">\n      <ion-icon name=\"send\"></ion-icon>\n      <ion-label>Tab Three</ion-label>\n    </ion-tab-button>\n  </ion-tab-bar>\n\n</ion-tabs>\n"
+module.exports = "<ion-tabs>\n\n  <ion-tab-bar slot=\"bottom\">\n    <ion-tab-button tab=\"tab2\">\n      <ion-icon name=\"flash\"></ion-icon>\n      <ion-label>Tab Two</ion-label>\n    </ion-tab-button>\n\n    <ion-tab-button tab=\"tab3\">\n      <ion-icon name=\"send\"></ion-icon>\n      <ion-label>Tab Three</ion-label>\n    </ion-tab-button>\n\n    \n      <ion-tab-button tab=\"tab1\">\n        <ion-icon name=\"apps\"></ion-icon>\n        <ion-label>Tab One</ion-label>\n      </ion-tab-button>\n\n    <ion-tab-button tab=\"tab4\">\n      <ion-icon name=\"cube\"></ion-icon>\n      <ion-label>Tab four</ion-label>\n    </ion-tab-button>\n\n    <ion-tab-button tab=\"tab5\">\n      <ion-icon name=\"clipboard\"></ion-icon>\n      <ion-label>Tab five</ion-label>\n    </ion-tab-button>\n  </ion-tab-bar>\n\n</ion-tabs>\n"
 
 /***/ }),
 
@@ -146,6 +146,24 @@ var routes = [
                     {
                         path: '',
                         loadChildren: '../tab3/tab3.module#Tab3PageModule'
+                    }
+                ]
+            },
+            {
+                path: 'tab4',
+                children: [
+                    {
+                        path: '',
+                        loadChildren: '../tab4/tab4.module#Tab4PageModule'
+                    }
+                ]
+            },
+            {
+                path: 'tab5',
+                children: [
+                    {
+                        path: '',
+                        loadChildren: '../tab5/tab5.module#Tab5PageModule'
                     }
                 ]
             },

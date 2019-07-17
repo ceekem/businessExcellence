@@ -7,7 +7,9 @@ const routes: Routes = [
   { path: 'media', loadChildren: './media/media.module#MediaPageModule', canActivate: [AuthGuard] },
   { path: 'slides', loadChildren: './slides/slides.module#SlidesPageModule',canActivate: [AuthGuard] },
   { path: 'pdf', loadChildren: './pdf/pdf.module#PdfPageModule', canActivate: [AuthGuard] },
-  { path: 'sign-in', loadChildren: './sign-in/sign-in.module#SignInPageModule', }
+  { path: 'sign-in', loadChildren: './sign-in/sign-in.module#SignInPageModule', },
+  { path: 'blog-list', loadChildren: './blog-list/blog-list.module#BlogListPageModule' },
+  { path: 'menu', loadChildren: './menu/menu.module#MenuPageModule' }
 ];
 @NgModule({
   imports: [
